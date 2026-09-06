@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Grid Game</title>
+    <link rel="stylesheet" href="puzzle.css">
+</head>
+
+<body>
+    <!-- Animated background ambient particles -->
+    <div class="bg-particle particle-1"></div>
+    <div class="bg-particle particle-2"></div>
+    <div class="bg-particle particle-3"></div>
+
+    <div class="game-container">
+
+        <!-- Left Container: Game Grid -->
+        <div class="card grid-card">
+            <h1 class="card-title">Arithmetic Grid Game</h1>
+            <!-- Main 4x4 Grid -->
+            <div class="grid">
+                <div class="cell"><span class="small-number">1</span></div>
+                <div class="cell"></div>
+                <div class="cell"><span class="small-number">2</span></div>
+                <div class="cell blocked"></div>
+
+                <div class="cell"></div>
+                <div class="cell blocked"></div>
+                <div class="cell"><span class="small-number">3</span></div>
+                <div class="cell"></div>
+
+                <div class="cell blocked"></div>
+                <div class="cell"><span class="small-number">4</span></div>
+                <div class="cell"></div>
+                <div class="cell blocked"></div>
+
+                <div class="cell"><span class="small-number">5</span></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div>
+        </div>
+    
+        <!-- Right Side Panel: Numbers & Operations -->
+        <div class="side-panel">
+            
+            <!-- Number Tiles Section -->
+            <div class="card panel-card">
+                <h2 class="card-title">Number Tiles</h2>
+                
+                <!-- Fixed syntax: div wrapper opening -->
+                <div class="number-grid">
+                    <div class="tile">10</div>
+                    <div class="tile">12</div>
+                    <div class="tile">3254</div>
+                    <div class="tile">3010</div>
+
+                    <div class="tile">11</div>
+                    <div class="tile">13</div>
+                    <div class="tile">123</div>
+                    <div class="tile">2</div>
+
+                    <div class="tile">12</div>
+                    <div class="tile">14</div>
+                    <div class="tile">13</div>
+                    <div class="tile">13</div>
+                </div>
+
+                <!-- Fixed syntax: bottom row container -->
+                <div class="number-grid-bottom">
+                    <div class="tile">6000</div>
+                    <div class="tile">440</div>
+                </div>
+            </div>
+
+            <!-- Operation Tiles Section -->
+            <div class="card panel-card">
+                <h2 class="card-title">Operation Tiles</h2>
+                <div class="op-grid">
+                    <div class="tile op-tile">+</div>
+                    <div class="tile op-tile">−</div>
+                    <div class="tile op-tile">×</div>
+                    <div class="tile op-tile">÷</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
