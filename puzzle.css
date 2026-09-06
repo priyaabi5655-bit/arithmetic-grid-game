@@ -2,7 +2,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 30px;
+    padding: 20px;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -67,10 +67,12 @@ body {
 /* Main Container Layout */
 .game-container {
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
     gap: 30px;
     position: relative;
     z-index: 1;
+    max-width: 100%;
 }
 
 /* Light-Gray Cards */
@@ -81,6 +83,7 @@ body {
     box-sizing: border-box;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     backdrop-filter: blur(8px);
+    width: 100%;
 }
 
 .card-title {
@@ -117,9 +120,11 @@ body {
     cursor: pointer;
     position: relative;
     transition: transform 0.15s, background-color 0.15s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.cell:hover {
+.cell:hover, .cell:active {
     background-color: #dff6ff;
     transform: scale(1.03);
     z-index: 2;
@@ -136,7 +141,7 @@ body {
     cursor: default;
 }
 
-.blocked:hover {
+.blocked:hover, .blocked:active {
     background: repeating-linear-gradient(
         -45deg,
         #222 0px,
@@ -160,6 +165,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    width: 100%;
 }
 
 .panel-card {
@@ -201,9 +207,11 @@ body {
     cursor: pointer;
     box-sizing: border-box;
     transition: transform 0.15s, background-color 0.15s;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.tile:hover {
+.tile:hover, .tile:active {
     transform: scale(1.08);
     background-color: #fff9b3;
 }
@@ -212,6 +220,93 @@ body {
     font-size: 20px;
 }
 
-.op-tile:hover {
+.op-tile:hover, .op-tile:active {
     background-color: #ffe680;
+}
+
+/* --- MOBILE RESPONSIVE MEDIA QUERIES --- */
+
+/* Tablet & Mobile Screens (800px or smaller) */
+@media screen and (max-width: 800px) {
+    body {
+        padding: 15px 10px;
+        align-items: flex-start;
+    }
+
+    .game-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .side-panel {
+        gap: 15px;
+    }
+}
+
+/* Small Mobile Screens (480px or smaller) */
+@media screen and (max-width: 480px) {
+    .card-title {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    /* Scales down the 4x4 main grid to fit small phone screens */
+    .grid {
+        grid-template-columns: repeat(4, 70px);
+        grid-template-rows: repeat(4, 70px);
+    }
+
+    .cell {
+        font-size: 16px;
+    }
+
+    .small-number {
+        font-size: 11px;
+        top: 2px;
+        left: 4px;
+    }
+
+    /* Adjusts side panel tiles for phone screens */
+    .number-grid {
+        grid-template-columns: repeat(4, 60px);
+        gap: 8px;
+    }
+
+    .number-grid-bottom, .op-grid {
+        gap: 8px;
+    }
+
+    .tile {
+        width: 60px;
+        height: 50px;
+        font-size: 12px;
+    }
+
+    .op-tile {
+        font-size: 18px;
+    }
+}
+
+/* Extra Small Phones (360px or smaller) */
+@media screen and (max-width: 360px) {
+    .grid {
+        grid-template-columns: repeat(4, 60px);
+        grid-template-rows: repeat(4, 60px);
+    }
+
+    .number-grid {
+        grid-template-columns: repeat(4, 50px);
+        gap: 6px;
+    }
+
+    .tile {
+        width: 50px;
+        height: 45px;
+    }
 }
